@@ -9,12 +9,41 @@
    <script src="./lib/phaser.js"></script>
    <script>
       class Title extends Phaser.Scene {
+         preload() {
+            this.load.path = "./assets/";
+            this.load.image("rolypoly", "images/rolypoly.png");
+            this.load.image("badge", "images/bestrolypoly.png");
+            this.load.image("fairy", "images/fairy.png");
+            this.load.image("snail", "images/snail.png");
+         }
+
          create() {
             let title = this.add.text(40, 40, "Roly Poly:").setFontSize(40);
             let subtitle = this.add.text(40, 120, "To the End").setFontSize(40);
 
             let playButton = this.add.rectangle(400, 500, 280, 80, 0x00ffad);
             let playText = this.add.text(400, 500, "PLAY").setFontSize(40).setOrigin(0.5).setColor("0");
+
+            let roly = this.add.image(200, 350, "rolypoly").setScale(0.1);
+            let fairy = this.add.image(400, 250, "fairy").setScale(0.1);
+            let snail = this.add.image( 600, 350, "snail").setScale(0.1);
+
+            this.tweens.add({
+               targets: fairy,
+               x: '+= 20',
+               y: '+= 20',
+               yoyo: true,
+               duration: 800,
+               repeat: -1
+            });
+
+            this.tweens.add({
+               targets: [roly, snail],
+               scale: 0.125,
+               yoyo: true,
+               duartion: 1200,
+               repeat: -1
+            })
 
             this.tweens.add({
                targets: title,
