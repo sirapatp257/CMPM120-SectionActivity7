@@ -6,6 +6,6 @@ Group members:
 
 ## Credits
 - Title phaser scene and initial file formatting done by Poom Phunjamaneechot
-- Art assets (roly poly, fairy, snail, badge) made by Ellen Brannon
+- Art assets (roly poly, fairy, snail, badge, and backgrounds) made by Ellen Brannon using Clip Studio Paint
 - Victory phaser scene not done yet
 - Game concept by Adam's almost-6-year-old daughter
