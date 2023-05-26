@@ -1,5 +1,5 @@
 ## Roly Poly: To the End - Section 7 Activity: Title and Victory screen design
-* Group members:
+Group members:
 - Poom Phunjamaneechot
 - Ellen Brannon
 - Sam IFORGOTYOURLASTNAMEAAAAAAAAAAAAAPLSREPLACEITHEREALSOREPLACETHEVICTORYSCENECREDITSWHENYOUDOTHAT
