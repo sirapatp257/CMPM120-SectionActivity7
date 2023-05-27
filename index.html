@@ -9,6 +9,10 @@
    <script src="./lib/phaser.js"></script>
    <script>
       class Title extends Phaser.Scene {
+         constructor() {
+            super('title');
+         }
+
          preload() {
             this.load.path = "./assets/";
             this.load.image("rolypoly", "images/rolypoly.png");
@@ -89,10 +93,40 @@
                duration: 800,
                onComplete: () => {
                   playButton.setInteractive().on('pointerdown', () => {
-                     // Transition to victory screen
+                     this.scene.start('win');
                   });
                }
             });
+         }
+      }
+
+      class Victory extends Phaser.Scene {
+         constructor() {
+            super('win');
+         }
+
+         create() {
+            let background = this.add.image(0, 0, "winscreenbg").setOrigin(0).setScale(.5);
+            let roly = this.add.image(-200, 300, "rolypoly").setScale(0.3);
+            let badge = this.add.image(420, 800, "badge").setScale(0.25);
+
+            this.tweens.add({
+               targets: roly,
+               x: 400,
+               alpha: {start: 0, to: 1},
+               duration: 600
+            });
+
+            this.tweens.add({
+               targets: badge,
+               y: 360,
+               duration: 800,
+               delay: 800
+            });
+
+            this.time.delayedCall(1500, () => {
+               this.input.on('pointerdown', () => this.scene.start('title'));
+            })
          }
       }
 
@@ -101,7 +135,7 @@
          width: 800,
          height: 600,
          backgroundColor: 0,
-         scene: [Title]
+         scene: [Title, Victory]
       }
 
       let game = new Phaser.Game(config);
